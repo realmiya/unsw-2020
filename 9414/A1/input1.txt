@@ -1,0 +1,38 @@
+# tasks with name and duration
+task, t1 3
+
+task, t2 2
+task, t3 4
+task, t4 1
+# binary constraints
+constraint, t1 before t2                   
+# t1 ends when or before t2 starts
+constraint, t3 after t2                   
+# t3 starts after or when t2 ends
+constraint, t4 same-day t3                 
+# t4 and t3 are scheduled on the same day
+constraint, t3 starts-at t2               
+# t3 starts exactly when t2 ends
+# hard domain constraints
+domain, t1 mon                                     
+# t starts on given day at any time
+domain, t2 starts-before tue 10am                
+# at or before given time
+domain, t4 tue
+# t starts at given time on any day
+#domain, ti starts-after hdayi htimei                  # at or after given time
+#domain, hti ends-before hdayi htimei                   # at or before given time
+#domain, hti ends-after hdayi htimei                    # at or after given time
+#domain, hti starts-in hdayi htimei-hdayi htimei         # day-time range
+#domain, hti ends-in hdayi htimei-hdayi htimei              # day-time range
+#domain, hti starts-before htimei                       # at or before time on any day
+#domain, hti ends-before htimei                         # at or before time on any day
+#domain, hti starts-after htimei                        # at or after time on any day
+#domain, hti ends-after htimei                          # at or after time on any day
+# soft deadline constraints
+#domain, t ends-by day time cost, cost per hour of missing deadline
+domain, t1 ends-by mon 3pm 10
+domain, t2 ends-by tue 1pm 20
+
+
+

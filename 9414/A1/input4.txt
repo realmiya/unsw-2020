@@ -1,0 +1,13 @@
+# tasks with name and duration
+task, t1 4
+task, t2 1
+# two binary constraints
+constraint, t1 before t2
+#domain constrain
+domain, t1 mon
+domain, t2 tue
+domain, t1 starts-before mon 10am
+domain, t2 ends-in tue 5pm-tue 5pm
+#soft deadlines
+domain, t1 ends-by mon 3pm 10
+domain, t2 ends-by tue 3pm 10
